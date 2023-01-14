@@ -2,10 +2,9 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config({ path: "./app.env" });
 const conn = require("./db");
-const allRoutes = require("./routes/all-route");
 const authRoutes = require("./routes/auth-route");
-const userRoutes = require("./routes/user-route");
-const doctorRoutes = require("./routes/doctor-route");
+//const userRoutes = require("./routes/user-route");
+//const doctorRoutes = require("./routes/doctor-route");
 
 const app = express();
 app.use(express.json());
@@ -13,9 +12,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 //routes
-app.use("/api", allRoutes);
 app.use("/api/auth", authRoutes);
-app.use("/api/user", userRoutes);
+//app.use("/api/user", userRoutes);
+//app.use("/api/doctor", doctorRoutes);
 
 //default route
 app.get("/", (req, res) => {
